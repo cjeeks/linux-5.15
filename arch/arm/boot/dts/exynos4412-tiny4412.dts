@@ -17,7 +17,8 @@
 	compatible = "friendlyarm,tiny4412", "samsung,exynos4412", "samsung,exynos4";
 
 	chosen {
-		stdout-path = &serial_0;
+		stdout-path = "serial2:115200n8";
+		bootargs = "root=/dev/ram0 rw rootfstype=ext3 console=ttySAC0,115200 init=/linuxrc earlyprintk";
 	};
 
 	memory@40000000 {
@@ -125,7 +126,7 @@
 	bus-width = <4>;
 	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_cd &sd2_bus4>;
 	pinctrl-names = "default";
-	status = "okay";
+	status = "disabled";
 };
 
 &serial_0 {
